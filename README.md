@@ -26,7 +26,7 @@ Pour utiliser cette version du projet, suivez ces étapes :
 
 2. Clonez le dossier `v0` :
     ```bash
-    git clone https://https://github.com/badr2e/note-it.git
+    git clone https://github.com/badr2e/note-it.git
     ```
 
 3. Lancez le fichier `main.py`.
