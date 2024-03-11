@@ -13,23 +13,12 @@ En tant qu'utilisateur, il est possible de créer un compte, d'ajouter des évé
 #### Installation et Utilisation
 
 Pour utiliser cette version du projet, suivez ces étapes :
-1. Assurez-vous d'avoir les modules suivants installés :
-    - sqlite3
-    - os
-    - hashlib
-    - re
-    - datetime
-
-    ```bash
-    pip install sqlite3 os hashlib re datetime
-    ```
-
-2. Clonez le dossier `v0` :
+1. Clonez le dossier `v0` :
     ```bash
     git clone https://github.com/badr2e/note-it.git
     ```
 
-3. Lancez le fichier `main.py`.
+2. Lancez le fichier `main.py`.
 
 #### Fonctionnalités
 
