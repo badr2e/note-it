@@ -10,15 +10,18 @@ En tant qu'utilisateur, il est possible de créer un compte, d'ajouter des évé
 
 ### v0 - Utilisable à partir d'un terminal
 
+### v1 - Interface graphique en tkinter (le mot de passe oublié, l'ajout de catégorie et la recherche d'évènement n'ont pas encore été implémenté)
+
 #### Installation et Utilisation
 
-Pour utiliser cette version du projet, suivez ces étapes :
-1. Clonez le dossier `v0` :
+1. **Téléchargement du dossier correspondant à la version souhaitée (par exemple, v0) :**
     ```bash
     git clone https://github.com/badr2e/note-it.git
     ```
 
-2. Lancez le fichier `main.py`.
+2. **Lancement du fichier main.py :**
+    - Naviguez vers le dossier téléchargé.
+    - Exécutez le fichier `main.py`.
 
 #### Fonctionnalités
 
