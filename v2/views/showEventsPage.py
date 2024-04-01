@@ -1,11 +1,22 @@
+"""Ce fichier est la page d'affichage des évènements de l'application. Elle permet à l'utilisateur de visualiser ses évènements.
+C'est la page qui est affiché après la connexion de l'utilisateur."""
+
+
+#----------------Importation des modules----------------
+
+
 import tkinter as tk
 from tkinter import messagebox
 from tkcalendar import DateEntry
 from datetime import datetime
 
-class ShowEventsPage(tk.Frame):
-    def __init__(self, parent, db, user):
-        tk.Frame.__init__(self, parent)
+
+#----------------Classe ShowEventsPage----------------
+
+
+class ShowEventsPage(tk.Frame): # On initialise la classe ShowEventsPage.
+    def __init__(self, db, user):
+        tk.Frame.__init__(self)
         self.db = db
         self.user = user
         self.configure(bg="#0053f4")
@@ -104,7 +115,6 @@ class ShowEventsPage(tk.Frame):
                 event_info = f"N°{idEvent} - {title} - {description} - Du {formatted_dateFrom} au {formatted_dateTo} - Catégorie: {category_name}"  # Informations de l'événement avec le nom de la catégorie
                 self.listbox.insert(tk.END, event_info) # On insère les évènements dans la liste
                 self.listbox.itemconfig(tk.END, {'bg': category_color, 'fg': 'white'})  # Appliquer la couleur de la catégorie en fond
-
 
     @staticmethod
     def format_date_french(date_str): # Fonction pour formater la date en français

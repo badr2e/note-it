@@ -1,10 +1,20 @@
+"""Ce fichier est la page de suppression de compte de l'application. Elle permet à l'administrateur de supprimer un compte."""
+
+
+#----------------Importation des modules----------------
+
+
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import simpledialog
 
-class DeleteAccountPage(tk.Frame):
-    def __init__(self, parent, db, account):
-        tk.Frame.__init__(self, parent)
+
+#----------------Classe DeleteAccountPage----------------
+
+
+class DeleteAccountPage(tk.Frame): # On initialise la classe DeleteAccountPage.
+    def __init__(self, db, account):
+        tk.Frame.__init__(self)
         self.db = db
         self.account = account
         self.configure(bg="#0053f4")

@@ -149,7 +149,6 @@ class DatabaseHandler:
             self.connection.rollback()
             return False, str(e)
 
-        
     @staticmethod
     def validate_dates(date1, date2): # Méthode de classe pour valider les dates de début et de fin d'un événement
         date_format = "%Y-%m-%d %H:%M"
@@ -162,7 +161,6 @@ class DatabaseHandler:
         except ValueError:
             return False, "Format d'heure invalide. Utilisez le format HH:MM."
         
-
     def add_event(self, user, title, description, date1, date2, category): # Méthode pour ajouter un événement, renvoie True si l'ajout a réussi, False sinon
         valid, message = DatabaseHandler.validate_dates(date1, date2) # Vérifier si les dates sont au bon format
         if not valid:

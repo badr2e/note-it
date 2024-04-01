@@ -1,11 +1,21 @@
+"""Ce fichier est la page d'inscription de l'application. Elle permet à l'utilisateur de créer un compte."""
+
+
+#----------------Importation des modules----------------
+
+
 import tkinter as tk
 from tkinter import messagebox
 
+
+#----------------Classe RegistrationPage----------------
+
+
 class RegistrationPage(tk.Frame):
-    def __init__(self, parent, db):
+    def __init__(self, parent, db): # On initialise la classe RegistrationPage.
         tk.Frame.__init__(self, parent)
         self.db = db
-        self.parent = parent
+        self.parent = parent # Pour l'instant, on ne fait pas appel à la fenêtre parent, dans des versions futures, on pourrait l'utiliser pour revenir à la page de connexion ou pour se connecter automatiquement après l'inscription.
         self.configure(bg="#0053f4")
         self.create_widgets()
 

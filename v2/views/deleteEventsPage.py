@@ -1,10 +1,20 @@
+"""Ce fichier est la page de suppression d'évènements de l'application. Elle permet à l'utilisateur de supprimer des évènements."""
+
+
+#----------------Importation des modules----------------
+
+
 import tkinter as tk
 from tkinter import messagebox
 from datetime import datetime
 
-class DeleteEventsPage(tk.Frame):
-    def __init__(self, parent, db, user):
-        tk.Frame.__init__(self, parent)
+
+#----------------Classe DeleteEventsPage----------------
+
+
+class DeleteEventsPage(tk.Frame): # On initialise la classe DeleteEventsPage.
+    def __init__(self, db, user):
+        tk.Frame.__init__(self)
         self.db = db
         self.user = user
         self.configure(bg="#0053f4")

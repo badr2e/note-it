@@ -1,11 +1,21 @@
+"""Ce fichier est la page de connexion de l'application. Elle permet à l'utilisateur de se connecter à son compte."""
+
+
+#----------------Importation des modules----------------
+
+
 import tkinter as tk
 from tkinter import messagebox
 
+
+#----------------Classe LoginPage----------------
+
+
 class LoginPage(tk.Frame):
-    def __init__(self, parent, db):
+    def __init__(self, parent, db): # On initialise la classe LoginPage.
         tk.Frame.__init__(self, parent)
         self.db = db
-        self.parent = parent
+        self.parent = parent # On récupère la fenêtre parent pour l'appeller à l'issue de la connexion.
         self.configure(bg="#0053f4")
         self.create_widgets()
     
@@ -39,7 +49,6 @@ class LoginPage(tk.Frame):
         btn_login = tk.Button(frame_login, text="Se connecter", command=self.login, bg="#0053f4", fg="white", font=("Arial", 11)) # Bouton pour se connecter
         btn_login.pack(pady=(0,10))
         
-
     def login(self):
         username = self.entry_user_login.get()
         password = self.entry_pass_login.get()

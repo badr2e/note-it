@@ -1,14 +1,23 @@
+"""Ce fichier est la page d'ajout de catégorie de l'application. Elle permet à l'utilisateur d'ajouter une catégorie."""
+
+
+#----------------Importation des modules----------------
+
+
 import tkinter as tk
 from tkinter import ttk
 
-class AddCategoryPage(tk.Frame):
-    def __init__(self, parent, db, user):
-        tk.Frame.__init__(self, parent)
+
+#----------------Classe AddCategoryPage----------------
+
+
+class AddCategoryPage(tk.Frame): # On initialise la classe AddCategoryPage.
+    def __init__(self, db, user):
+        tk.Frame.__init__(self)
         self.db = db
         self.user = user
         self.configure(bg="#0053f4")
         self.create_widgets()
-    
     
     def create_widgets(self):
         title = tk.Label(self, text="Ajouter une catégorie", font=("Arial", 24, "bold"), bg="#0053f4", fg="white")
@@ -20,14 +29,14 @@ class AddCategoryPage(tk.Frame):
         scrollbar = tk.Scrollbar(frame_listbox, orient=tk.VERTICAL) # Ajout d'une barre de défilement à droite et qui se remplit verticalement
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
-        self.listbox = tk.Listbox(frame_listbox, yscrollcommand=scrollbar.set, font=("Arial", 11), bg="white", fg="black") # Création d'une liste pour afficher les évènements, on permet la sélection multiple
+        self.listbox = tk.Listbox(frame_listbox, yscrollcommand=scrollbar.set, font=("Arial", 11), bg="white", fg="black") # Création d'une liste pour afficher les catégories
         self.listbox.pack(expand=True, fill='both')
 
         scrollbar.config(command=self.listbox.yview) # Configuration de la barre de défilement pour se synchroniser avec la liste
 
         self.update_category_list()
 
-        #---------Frame Container Entry---------#
+        # Ajout d'une frame pour les champs d'entrée
 
         frame_entry = tk.Frame(self, bg="white", highlightbackground="black", highlightthickness=5)
         frame_entry.pack(side="right", expand=True, fill='both', padx=(10,50), pady=(10,40))
@@ -46,12 +55,11 @@ class AddCategoryPage(tk.Frame):
         btn_add = tk.Button(frame_entry, text="Ajouter", command=self.add_category, font=("Arial", 14))
         btn_add.pack(pady=(10, 20))
 
-
-    def update_category_list(self):
-        self.listbox.delete(0, tk.END)
-        categories = self.db.get_user_categories_and_colors(self.user)
+    def update_category_list(self): # Met à jour la liste des catégories
+        self.listbox.delete(0, tk.END) # Efface la liste existante
+        categories = self.db.get_user_categories_and_colors(self.user) # Récupère les catégories de l'utilisateur
         for category in categories:
-            category_id, category_name, category_color = category
+            category_id, category_name, category_color = category 
             self.listbox.insert(tk.END, category_name)
             self.listbox.itemconfig(tk.END, {'bg': category_color, 'fg': 'white'})
 
@@ -64,7 +72,6 @@ class AddCategoryPage(tk.Frame):
     def add_category(self):
         name = self.category_name_entry.get()
         color_id = self.color_combobox.current()  # Obtenez l'index sélectionné dans la combobox
-
         if name and color_id != -1:  # Vérifie si le champ de nom de catégorie n'est pas vide et si une couleur est sélectionnée
             success, message = self.db.add_category(self.user, name, color_id+1)
             if success:
